@@ -18,7 +18,7 @@
       path: config/dev/atom/package.list
     $HOME/.atom/config.cson:
       path: config/dev/atom/config.cson
-    $HOME/.config/i3-custom:
+    $HOME/.config/i3-custom/:
       path: config/admin/i3/*
       glob: true
 
