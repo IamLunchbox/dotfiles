@@ -9,6 +9,8 @@
       mode: 0750
     $HOME/Repos:
       mode: 0750
+    $HOME/.config/i3-custom:
+      mode: 0750
 
 - link:
     $HOME/.config/:
@@ -19,7 +21,7 @@
     $HOME/.atom/config.cson:
       path: config/dev/atom/config.cson
     $HOME/.config/i3-custom/:
-      path: config/admin/i3/*
+      path: config/dev/i3/**
       glob: true
 
 - shell:
