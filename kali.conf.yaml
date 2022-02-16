@@ -1,30 +1,32 @@
 - defaults:
     link:
       relink: true
+      force: true
+      create: true
 
 - create:
-    $HOME/Repos:
-      mode: 0750
     $HOME/Pictures/Screenshots:
+      mode: 0750
+    $HOME/Repos:
       mode: 0750
 
 - link:
     $HOME/.config/:
       glob: true
-      path: config/kali/.config/*
-      force: true
-      create: true
+      path: config/desktop/config/*
+    $HOME/.config/wallpapers:
+      glob: true
+      path: config/kali/wallpapers
     $HOME/.atom/package.list:
       path: config/kali/atom/package.list
-      force: true
-      create: true
     $HOME/.atom/config.cson:
       path: config/kali/atom/config.cson
-      force: true
     $HOME/.nanorc:
       path: config/kali/nanorc
-      force: true
-      relink: true
+    $HOME/.config/i3-custom/:
+      path: config/kali/i3/*
+      glob: true
+
 
 - shell:
   - [if command -v apm 2>&1 1>/dev/null; then apm install --packages-file $HOME/.atom/package.list; fi]

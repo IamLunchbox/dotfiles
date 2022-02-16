@@ -1,6 +1,8 @@
 - defaults:
     link:
       relink: true
+      force: true
+      create: true
 
 - create:
     $HOME/Pictures/Screenshots:
@@ -10,15 +12,15 @@
 
 - link:
     $HOME/.config/:
-      glob: true
       path: config/desktop/config/*
-      force: true
+      glob: true
     $HOME/.atom/package.list:
       path: config/dev/atom/package.list
-      force: true
     $HOME/.atom/config.cson:
       path: config/dev/atom/config.cson
-      force: true
+    $HOME/.config/i3-custom:
+      path: config/admin/i3/*
+      glob: true
 
 - shell:
   - [if command -v apm 2>&1 1>/dev/null; then apm install --packages-file $HOME/.atom/package.list; fi]
