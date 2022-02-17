@@ -1,6 +1,6 @@
 /*******************************************************************************
- * MACOS SPOTLIGHT LIKE THEME FOR ROFI 
- * User                 : LR-Tech               
+ * MACOS SPOTLIGHT LIKE THEME FOR ROFI
+ * User                 : LR-Tech
  * Theme Repo           : https://github.com/lr-tech/rofi-themes-collection
  *******************************************************************************/
 
@@ -33,7 +33,7 @@ window {
 }
 
 inputbar {
-    font:       "Montserrat 20";
+    font:       "Montserrat 14";
     padding:    12px;
     spacing:    12px;
     children:   [ icon-search, entry ];
@@ -68,8 +68,7 @@ textbox {
 
 listview {
     lines:      10;
-    columns:    1;
-
+    columns:    3;
     fixed-height:   false;
     border:         1px 0 0;
     border-color:   @bg1;
