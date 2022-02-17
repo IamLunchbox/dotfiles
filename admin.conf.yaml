@@ -12,6 +12,11 @@
     $HOME/.config/i3-custom:
       mode: 0750
 
+- shell:
+    command: "rm $HOME/.config/i3-custom/*"
+    quiet: true
+    description: "Cleaning up custom dotfiles beforehand"
+
 - link:
     $HOME/.config/:
       glob: true

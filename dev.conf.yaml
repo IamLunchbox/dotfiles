@@ -12,6 +12,12 @@
     $HOME/.config/i3-custom:
       mode: 0750
 
+- shell:
+    command: "rm $HOME/.config/i3-custom/*"
+    quiet: true
+    description: "Cleaning up custom dotfiles beforehand"
+
+
 - link:
     $HOME/.config/:
       path: config/desktop/config/*
@@ -22,6 +28,6 @@
       path: config/dev/atom/config.cson
     $HOME/.config/i3-custom/dev.conf:
       path: config/dev/i3/dev.conf
-  
+
 - shell:
   - [if command -v apm 2>&1 1>/dev/null; then apm install --packages-file $HOME/.atom/package.list; fi]
