@@ -3,7 +3,7 @@
       relink: true
       force: true
       create: true
-      
+
 - create:
     $HOME/.ssh:
       mode: 0700

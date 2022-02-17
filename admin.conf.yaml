@@ -20,9 +20,8 @@
       path: config/admin/atom/package.list
     $HOME/.atom/config.cson:
       path: config/admin/atom/config.cson
-    $HOME/.config/i3-custom:
-      path: config/admin/i3/**
-      glob: true
+    $HOME/.config/i3-custom/admin.conf:
+      path: config/admin/i3/admin.conf
 
 - shell:
   - [if command -v apm 2>&1 1>/dev/null; then apm install --packages-file $HOME/.atom/package.list; fi]

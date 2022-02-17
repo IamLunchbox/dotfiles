@@ -25,8 +25,8 @@
       path: config/kali/atom/config.cson
     $HOME/.nanorc:
       path: config/kali/nanorc
-    $HOME/.config/i3-custom/:
-      path: config/kali/i3/**
+    $HOME/.config/i3-custom/kali.conf:
+      path: config/kali/i3/kali.conf
       glob: true
 
 
