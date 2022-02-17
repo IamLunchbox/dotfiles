@@ -14,7 +14,7 @@
 
 - shell:
     -
-      command: "rm $HOME/.config/i3-custom/*"
+      command: "cd ${HOME}/.config/i3-custom; for i in *; do rm ${HOME}/.config/i3-custom/${i}; done"
       quiet: true
       description: "Cleaning up custom dotfiles beforehand"
 
