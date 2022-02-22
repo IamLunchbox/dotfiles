@@ -14,7 +14,7 @@
 
 - shell:
     -
-      command: "cd ${HOME}/.config/i3-custom; for i in *; do rm ${HOME}/.config/i3-custom/${i}; done"
+      command: if [[ -d ${HOME}/.config/i3-custom ]]; then rm -r ${HOME}/.config/i3-custom; fi"
       quiet: true
       description: "Cleaning up custom dotfiles beforehand"
 
@@ -28,8 +28,8 @@
       path: config/dev/atom/package.list
     $HOME/.atom/config.cson:
       path: config/dev/atom/config.cson
-    $HOME/.config/i3-custom/dev.conf:
-      path: config/dev/i3/dev.conf
+    $HOME/.config/i3-custom/ansible_dev.conf:
+      path: config/ansible_dev/i3/dev.conf
 
 - shell:
   - [if command -v apm 2>&1 1>/dev/null; then apm install --packages-file $HOME/.atom/package.list; fi]
