@@ -8,13 +8,25 @@ general {
 		color_bad = '#ba5e57'
 }
 
+order += "battery 1"
 order += "load"
 order += "disk /"
 order += "ethernet eth0"
 order += "path_exists tun0"
 order += "path_exists wg0"
-order += "battery 1"
 order += "tztime local"
+
+battery 1 {
+last_full_capacity = true
+format = "<span background='#a3be8c'>  %status %percentage </span>"
+format_down = "No Battery"
+status_chr = "Charging"
+status_bat = "Battery"
+status_unk = "Battery"
+status_full = "Charged"
+low_threshold = 10
+path = "/sys/class/power_supply/BAT0/uevent"
+}
 
 load {
         format = "<span background='#f59335'>  %5min Load </span>"
@@ -29,7 +41,6 @@ ethernet eth0 {
         format_down = "<span background='#88c0d0'>  Ethernet off  </span>"
 }
 
-
 path_exists tun0 {
 	path = "/proc/sys/net/ipv4/conf/tun0/"
         format = "<span background='#3bc480'> %title </span>"
@@ -40,18 +51,6 @@ path_exists wg0 {
 	path = "/proc/sys/net/ipv4/conf/wg0/"
         format = "<span background='#3bc480'> %title </span>"
         format_down = "<span background='#99ccff'> %title off </span>"
-}
-
-battery 1 {
-	last_full_capacity = true
-        format = "<span background='#a3be8c'>  %status %percentage </span>"
-        format_down = "No Battery"
-        status_chr = "Charging"
-        status_bat = "Battery"
-        status_unk = "Battery"
-        status_full = "Charged"
-        low_threshold = 10
-        path = "/sys/class/power_supply/BAT0/uevent"
 }
 
 tztime local {
