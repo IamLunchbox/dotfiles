@@ -4,6 +4,12 @@
       force: true
       create: true
 
+- shell:
+    -
+      command: "cd ${HOME}/.config/i3-custom; for i in *; do rm ${HOME}/.config/i3-custom/${i}; done"
+      quiet: true
+      description: "Cleaning up custom dotfiles beforehand"
+
 - create:
     $HOME/Pictures/Screenshots:
       mode: 0750
@@ -11,13 +17,6 @@
       mode: 0750
     $HOME/.config/i3-custom:
       mode: 0750
-
-- shell:
-    -
-      command: "cd ${HOME}/.config/i3-custom; for i in *; do rm ${HOME}/.config/i3-custom/${i}; done"
-      quiet: true
-      description: "Cleaning up custom dotfiles beforehand"
-
 
 - link:
     $HOME/.config/:
