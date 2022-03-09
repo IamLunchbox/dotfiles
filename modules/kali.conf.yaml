@@ -5,10 +5,10 @@
       create: true
 
 - shell:
-    -
-      command: "cd ${HOME}/.config/i3-custom; for i in *; do rm ${HOME}/.config/i3-custom/${i}; done"
-      quiet: true
-      description: "Cleaning up custom dotfiles beforehand"
+  -
+    command: "if [[ -d ${HOME}/.config/i3-custom ]]; rm -r ${HOME}/.config/i3-custom; fi"
+    quiet: true
+    description: "Cleaning up custom dotfiles beforehand"
 
 - create:
     $HOME/Pictures/Screenshots:
