@@ -5,7 +5,7 @@ configuration {
         terminal: "i3-sensible-terminal";
         fixed-num-lines: true;
         sidebar-mode: true;
-        kb-mode-next: "Shift+Right,Control+Tab";
+        kb-mode-next: "Tab";
         kb-row-tab: "";
 }
 @theme "spotlight-dark"
