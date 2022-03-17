@@ -1,5 +1,5 @@
 configuration {
-        modi: "run,drun";
+        modi: "drun,window";
         show-icons: true;
         font: "Noto Sans 8";
         terminal: "i3-sensible-terminal";
@@ -8,4 +8,4 @@ configuration {
         kb-mode-next: "Tab";
         kb-row-tab: "";
 }
-@theme "spotlight-dark"
+@theme "squared-nord"
