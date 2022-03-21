@@ -8,4 +8,4 @@ configuration {
         kb-mode-next: "Shift+Right,Alt+Tab";
         kb-row-tab: "";
 }
-@theme "squared-nord"
+@theme "themes/squared-nord"
