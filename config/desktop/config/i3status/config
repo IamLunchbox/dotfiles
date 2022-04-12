@@ -12,36 +12,38 @@ order += "battery 1"
 order += "load"
 order += "disk /"
 order += "ethernet eth0"
-order += "path_exists tun0"
+order += "path_exists VPN"
 order += "path_exists wg0"
+order += "volume master"
 order += "tztime local"
 
 battery 1 {
-last_full_capacity = true
-format = "<span background='#a3be8c'>  %status %percentage </span>"
-format_down = "No Battery"
-status_chr = "Charging"
-status_bat = "Battery"
-status_unk = "Battery"
-status_full = "Charged"
-low_threshold = 10
-path = "/sys/class/power_supply/BAT0/uevent"
+	last_full_capacity = true
+        format = "<span background='#a3be8c'> %status %percentage </span>"
+        format_down = "No Battery"
+        status_chr = "Charging"
+        status_bat = "Battery"
+        status_unk = "Battery"
+        status_full = "Charged"
+        low_threshold = 10
+        path = "/sys/class/power_supply/BAT0/uevent"
 }
 
 load {
-        format = "<span background='#f59335'>  %5min Load </span>"
+        format = "<span background='#f59335'> %5min Load </span>"
 }
 
 disk "/" {
-        format = "<span background='#fec7cd'>  %free Free </span>"
+        format = "<span background='#fec7cd'> %free Free </span>"
 }
 
 ethernet eth0 {
-        format_up = "<span background='#88c0d0'>  %ip  </span>"
-        format_down = "<span background='#88c0d0'>  Ethernet off  </span>"
+        format_up = "<span background='#88c0d0'> %ip </span>"
+        format_down = "<span background='#88c0d0'> Ethernet off </span>"
 }
 
-path_exists tun0 {
+
+path_exists VPN {
 	path = "/proc/sys/net/ipv4/conf/tun0/"
         format = "<span background='#3bc480'> %title </span>"
         format_down = "<span background='#99ccff'> %title off </span>"
@@ -53,7 +55,16 @@ path_exists wg0 {
         format_down = "<span background='#99ccff'> %title off </span>"
 }
 
+volume master {
+        format = "<span background='#ebcb8b'> %volume </span>"
+        format_muted = "<span background='#ebcb8b'> Muted </span>"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+
+
 tztime local {
 		format = "<span background='#81a1c1'> %time </span>"
-		format_time = "%a %d. %b | %H:%M | KW %V/%Y"
+		format_time = "%a %d.%b|%H:%M|KW %V/%Y"
 }
