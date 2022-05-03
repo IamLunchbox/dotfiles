@@ -1,7 +1,7 @@
 function testssl-report() {
 set -u
-if [[ $(command -v openssl-unsave) ]]; then
-  testssl -p -e -f --color 0 --openssl /usr/bin/openssl-unsave --mapping no-openssl "$1" | sed -r 's/^ x[0-9a-f]{2,}[ ]{3,}([^ ]*).*/\1/' | sed -r 's/^-{90}/-------------/' | sed 's/Hexcode.*/Cipher Suites/'
+if [[ $(command -v openssl-unsafe) ]]; then
+  testssl -p -e -f --color 0 --openssl /usr/bin/openssl-unsafe --mapping no-openssl "$1" | sed -r 's/^ x[0-9a-f]{2,}[ ]{3,}([^ ]*).*/\1/' | sed -r 's/^-{90}/-------------/' | sed 's/Hexcode.*/Cipher Suites/'
 elif [[ $(command -v openssl) ]]; then
   testssl -p -e -f --color 0 --openssl /usr/bin/openssl --mapping no-openssl "$1" | sed -r 's/^ x[0-9a-f]{2,}[ ]{3,}([^ ]*).*/\1/' | sed -r 's/^-{90}/-------------/' | sed 's/Hexcode.*/Cipher Suites/'
 fi
@@ -25,12 +25,12 @@ set +u
 function testssl() {
 set -u
 if [[ -d $HOME/Repos/testssl.sh ]]; then
-  if [[ $(command -v openssl-unsave) ]]; then
-    echo "Testssl - Unsave openssl
+  if [[ $(command -v openssl-unsafe) ]]; then
+    echo "Testssl - unsafe openssl
 ------------------------"
-    $HOME/Repos/testssl.sh/testssl.sh --openssl /usr/bin/openssl-unsave $@
+    $HOME/Repos/testssl.sh/testssl.sh --openssl /usr/bin/openssl-unsafe $@
   elif [[ $(command -v openssl) ]]; then
-    echo "Testssl - Unsave openssl
+    echo "Testssl - unsafe openssl
 ------------------------"
     $HOME/Repos/testssl.sh/testssl.sh --openssl /usr/bin/openssl $@
   fi
