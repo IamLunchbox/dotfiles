@@ -1,15 +1,17 @@
 dotfiles(){
 	source="$(pwd)"
 	cd $HOME
-	if [[ ! -d .dotfiles ]]; then
+	if [[ ! -d $HOME/.dotfiles ]]; then
 		git clone https://github.com/IamLunchbox/dotfiles .dotfiles
 		cd .dotfiles
-		./install
-		cd "$source"
 	else
 		cd $HOME/.dotfiles
 		git pull
-		./install
-		cd "$source"
+	fi
+}
+
+lla() {
+	if [[ $(ls -lA1h | wc -l) -gt $LINES ]]; then
+		ls -lA1h --color=always | less -r
 	fi
 }
