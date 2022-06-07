@@ -12,6 +12,6 @@ dotfiles(){
 
 lla() {
 	if [[ $(ls -lA1h | wc -l) -gt $LINES ]]; then
-		ls -lA1h --color=always | less -r
+		ls -lA1h --color=always | less -rm
 	fi
 }
