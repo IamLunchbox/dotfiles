@@ -23,7 +23,7 @@
       path: config/desktop/config/*
       glob: true
     $HOME/.config/i3-custom/dev.conf:
-      path: config/ansible_dev/i3/dev.conf
+      path: config/dev/i3/dev.conf
     $HOME/.vscode-oss/plugins.txt:
       path: config/desktop/.vscode-oss/plugins.txt
 
