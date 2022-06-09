@@ -34,7 +34,7 @@
       path: config/desktop/.vscode-oss/plugins.txt
 
 - shell:
-  - [if command -v codium; then while IFS= read -r pkg; do codium --install-extension $pkg; done < /home/ubuntu/.vscode-oss/plugins.txt; fi]
+  - [if command -v codium; then while IFS= read -r pkg; do codium --install-extension $pkg; done < $HOME/.vscode-oss/plugins.txt; fi]
 
 - clean:
     $HOME/:
