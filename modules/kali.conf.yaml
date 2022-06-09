@@ -25,20 +25,16 @@
     $HOME/.config/wallpapers:
       glob: true
       path: config/kali/wallpapers
-    $HOME/.atom/package.list:
-      path: config/kali/atom/package.list
-    $HOME/.atom/config.cson:
-      path: config/kali/atom/config.cson
     $HOME/.nanorc:
       path: config/kali/nanorc
     $HOME/.config/i3-custom/kali.conf:
       path: config/kali/i3/kali.conf
       glob: true
-
+    $HOME/.vscode-oss/plugins.txt:
+      path: config/desktop/.vscode-oss/plugins.txt
 
 - shell:
-  - [if command -v apm 2>&1 1>/dev/null; then apm install --packages-file $HOME/.atom/package.list; fi]
-
+  - [if command -v codium; then while IFS= read -r pkg; do codium --install-extension $pkg; done < /home/ubuntu/.vscode-oss/plugins.txt; fi]
 
 - clean:
     $HOME/:

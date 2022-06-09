@@ -22,12 +22,10 @@
     $HOME/.config/:
       path: config/desktop/config/*
       glob: true
-    $HOME/.atom/package.list:
-      path: config/dev/atom/package.list
-    $HOME/.atom/config.cson:
-      path: config/dev/atom/config.cson
     $HOME/.config/i3-custom/ansible_dev.conf:
       path: config/ansible_dev/i3/dev.conf
+    $HOME/.vscode-oss/plugins.txt:
+      path: config/desktop/.vscode-oss/plugins.txt
 
 - shell:
-  - [if command -v apm 2>&1 1>/dev/null; then apm install --packages-file $HOME/.atom/package.list; fi]
+  - [if command -v codium; then while IFS= read -r pkg; do codium --install-extension $pkg; done < /home/ubuntu/.vscode-oss/plugins.txt; fi]
