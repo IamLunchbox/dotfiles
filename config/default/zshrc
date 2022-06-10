@@ -33,10 +33,10 @@ bindkey	"^[[3~" delete-char
 bindkey	"^[[1;5C"	forward-word
 bindkey	"^[[1;5D"	backward-word
 if [[ $(uname -rv) =~ "kali" ]]; then
-  # Unneccessarily nested, but more readable 
+  # Unneccessarily nested, but more readable
   # ctrl+backspace and backspace always evaluated to ^? using ssh
   # this workaround did not work.
-  if [[ ! -n "$SSH_CLIENT" ]] || [[ ! -n "$SSH_TTY" ]]; then
+  if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
     bindkey '^?'  backward-kill-word
   fi
 else;
