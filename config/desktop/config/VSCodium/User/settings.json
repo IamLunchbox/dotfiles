@@ -1,0 +1,11 @@
+{
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.startupEditor": "none",
+    "redhat.telemetry.enabled": false,
+    "editor.renderWhitespace": "all",
+    "editor.tabSize": 2,
+    "files.exclude": {
+        "**/.git": false
+    },
+    "workbench.enableExperiments": false
+}
