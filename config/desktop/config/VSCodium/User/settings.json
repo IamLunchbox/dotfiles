@@ -10,5 +10,6 @@
     "workbench.enableExperiments": false,
     "workbench.editor.limit.enabled": true,
     "workbench.editor.limit.value": 5,
-    "workbench.editor.limit.excludeDirty": true
+    "workbench.editor.limit.excludeDirty": true,
+    "files.insertFinalNewline": true
 }
