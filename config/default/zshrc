@@ -20,14 +20,12 @@ setopt GLOB_COMPLETE
 autoload -U select-word-style
 select-word-style bash
 
-
 #simple ps1
 #PS1="%{$fg[yellow]%}%n@%m %{$fg[magenta]%}%~ :  %{$reset_color%}% "
 
 # Longer one with date and hostname, but no line break
 PS1=$'%B%F{166}%d%f%b\n%F{243}%n@%M%f%(!. %B%F{red}#%b%f.%F{243}:%f)%f '
 RPROMPT='%(?.%B%F{green}√%b%f.%B%F{red}✗%b%?%f)'
-TERM="xterm-256color"
 # If one keybinding behaves unexpected, use ctrl+v or cat -v to investigate
 bindkey	"^[[3~" delete-char
 bindkey	"^[[1;5C"	forward-word
@@ -35,9 +33,10 @@ bindkey	"^[[1;5D"	backward-word
 if [[ $(uname -rv) =~ "kali" ]]; then
   # Unneccessarily nested, but more readable
   # ctrl+backspace and backspace always evaluated to ^? using ssh
-  # this workaround did not work.
   if [[ -z "$SSH_CLIENT" ]] || [[ -z "$SSH_TTY" ]]; then
     bindkey '^?'  backward-kill-word
+  elif [[ $TERM_PROGRAM == "vscode" ]]; then
+    bindkey '^W'  backward-kill-word
   fi
 else;
   bindkey '^H'  backward-kill-word
@@ -69,5 +68,3 @@ if [[ -h "$HOME/.zsh-functions" ]]; then
   source $func;
   done
 fi
-
-umask 0027
