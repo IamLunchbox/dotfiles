@@ -17,6 +17,8 @@
       mode: 0750
     $HOME/.config/i3-custom:
       mode: 0750
+    $HOME/Documents/Shell-Logs:
+      mode: 0750
 
 - link:
     $HOME/.config/:
