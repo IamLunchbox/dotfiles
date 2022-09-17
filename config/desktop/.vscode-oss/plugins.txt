@@ -5,3 +5,4 @@ ms-toolsai.jupyter-renderers
 redhat.ansible
 redhat.vscode-yaml
 zhuangtongfa.material-theme
+hashicorp.terraform
