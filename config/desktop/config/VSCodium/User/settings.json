@@ -11,5 +11,17 @@
     "workbench.editor.limit.enabled": true,
     "workbench.editor.limit.value": 5,
     "workbench.editor.limit.excludeDirty": true,
-    "files.insertFinalNewline": true
+    "files.insertFinalNewline": true,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "right"
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "git.enableSmartCommit": true,
+    "docker.dockerPath": "podman",
+    "docker.host": "unix:///run/user/1000/podman/podman.sock"
 }

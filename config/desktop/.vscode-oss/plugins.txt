@@ -5,3 +5,5 @@ ms-toolsai.jupyter-renderers
 redhat.ansible
 redhat.vscode-yaml
 zhuangtongfa.material-theme
+ms-azuretools.vscode-docker
+equinusocio.vsc-material-theme-icons
