@@ -1,0 +1,24 @@
+name: CI
+on:
+  push:
+    branches: ["main"]
+  pull_request: 
+    branches: ["main"]
+  workflow_dispatch:
+jobs:
+  deploy:
+    strategy:
+      matrix:
+        role: [base,admin,dev]
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        path: .dotfiles
+    - name: Install Vscode
+      run: |
+        curl -fsSL https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gp | sudo gpg --dearmor -o /usr/share/keyrings/codium.gpg
+        echo 'deb [ signed-by=/usr/share/keyrings/codium.gpg ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main' | sudo tee /etc/apt/sources-list.d/codium.list
+        apt install -y codium vim tmux zsh zsh-syntax-highlighting zsh-autosuggestions
+    - name: Install dotfiles
+      run: ./install ${{ matrix.role }}        
