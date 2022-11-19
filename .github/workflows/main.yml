@@ -19,6 +19,9 @@ jobs:
       run: |
         curl -fsSL https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | sudo gpg --dearmor -o /usr/share/keyrings/codium.gpg
         echo 'deb [ signed-by=/usr/share/keyrings/codium.gpg ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main' | sudo tee /etc/apt/sources.list.d/codium.list
-        sudo apt install -y codium vim tmux zsh zsh-syntax-highlighting zsh-autosuggestions
+        sudo chmod 644 /etc/apt/sources.list.d/codium.list
+        sudo apt update -y
+        sudo apt install -y codium 
+      # Tests for vim tmux zsh zsh-syntax-highlighting zsh-autosuggestions missing as of now
     - name: Install dotfiles
       run: ./install ${{ matrix.role }}
