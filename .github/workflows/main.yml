@@ -25,4 +25,4 @@ jobs:
       # Tests for vim tmux zsh zsh-syntax-highlighting zsh-autosuggestions missing as of now
     - name: Install dotfiles
       run: ./install ${{ matrix.role }}
-      working-directory: $GITHUB_WORKSPACE/.dotfiles
+      #working-directory: $GITHUB_WORKSPACE/.dotfiles
