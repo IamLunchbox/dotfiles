@@ -24,4 +24,6 @@ jobs:
         sudo apt install -y codium 
       # Tests for vim tmux zsh zsh-syntax-highlighting zsh-autosuggestions missing as of now
     - name: Install dotfiles
-      run: $GITHUB_WORKSPACE/install ${{ matrix.role }}
+      run: ls -la && ls $GITHUB_WORKSPACE/install ${{ matrix.role }}
+      
+      #bash $GITHUB_WORKSPACE/install ${{ matrix.role }}
