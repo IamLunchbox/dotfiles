@@ -2,3 +2,6 @@ home/.atom/*
 !home/.atom/package.list
 !home/.atom/config.cson
 *.swp
+config/desktop/config/VSCodium/
+!config/desktop/config/VSCodium/User/settings.json
+!config/desktop/config/VSCodium/User/keybindings.json
