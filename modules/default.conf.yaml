@@ -15,6 +15,9 @@
     $HOME/.zsh-functions:
       force: true
       path: config/default/zsh-functions
+    $HOME/.zshrc:
+      force: true
+      path: config/default/zshrc
     $HOME/.nanorc:
       path: config/default/nanorc
       force: true

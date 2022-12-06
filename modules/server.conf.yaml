@@ -6,6 +6,3 @@
     $HOME/.tmux.conf:
       path: config/server/tmux.conf
       force: true
-    $HOME/.zshrc:
-      force: true
-      path: config/default/zshrc

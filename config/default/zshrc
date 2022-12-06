@@ -5,7 +5,7 @@ setopt hist_expire_dups_first
 setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_verify            # show command with history expansion to user before running it
-
+setopt nonomatch
 # History, default settings
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -19,19 +19,33 @@ autoload -U compinit && compinit
 setopt GLOB_COMPLETE
 autoload -U select-word-style
 select-word-style bash
+PS1=""
 
-#simple ps1
-#PS1="%{$fg[yellow]%}%n@%m %{$fg[magenta]%}%~ :  %{$reset_color%}% "
-
-# Longer one with date and hostname, but no line break
-PS1=$'%B%F{166}%d%f%b\n%F{243}%n@%M%f%(!. %B%F{red}#%b%f.%F{243}:%f)%f '
+if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
+  if [[ -n $SSH_CONNECTION ]]; then 
+    setopt prompt_subst
+    PS1='%F{174}`echo $SSH_CONNECTION | cut -d " " -f 3`:%f'
+  fi 
+  bindkey '^H'  backward-kill-word
+elif [[ $TERM_PROGRAM == "vscode" ]]; then
+  bindkey '^W'  backward-kill-word
+elif cat /etc/debian_version &> /dev/null && [[ $(cat /etc/debian_version) == "kali-rolling" ]]; then
+  bindkey '^?'  backward-kill-word
+else 
+  bindkey '^H'  backward-kill-word
+fi
+if cat /etc/debian_version &> /dev/null && [[ $(cat /etc/debian_version) == "kali-rolling" ]]; then
+  PS1+=$'%B%F{124}%d%f%b\n%F{243}%n@%M%f%(!. %B%F{red}#%b%f.%F{243}:%f)%f '
+else;
+  PS1+=$'%B%F{166}%d%f%b\n%F{243}%n@%M%f%(!. %B%F{red}#%b%f.%F{243}:%f)%f '
+fi
 RPROMPT='%(?.%B%F{green}√%b%f.%B%F{red}✗%b%?%f)'
 PATH="${PATH:+${PATH}:}~$HOME/.local/bin"
 # If one keybinding behaves unexpected, use ctrl+v or cat -v to investigate
 bindkey	"^[[3~" delete-char
 bindkey	"^[[1;5C"	forward-word
 bindkey	"^[[1;5D"	backward-word
-bindkey '5~'  kill-word
+bindkey '^[[3;5~'  kill-word
 
 #Suggest entries from the zsh history for autocomplete
 if [[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
