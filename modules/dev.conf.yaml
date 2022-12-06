@@ -11,6 +11,9 @@
     description: "Cleaning up custom dotfiles beforehand"
 
 - create:
+    $HOME/.zshrc:
+      force: true
+      path: config/default/zshrc
     $HOME/Pictures/Screenshots:
       mode: 0750
     $HOME/Repos:

@@ -12,9 +12,6 @@
     $HOME/.vim:
       path: config/default/vim
       force: true
-    $HOME/.zshrc:
-      force: true
-      path: config/default/zshrc
     $HOME/.zsh-functions:
       force: true
       path: config/default/zsh-functions

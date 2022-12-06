@@ -37,7 +37,7 @@
 
 - shell:
   - [if command -v codium; then while IFS= read -r pkg; do codium --install-extension $pkg; done < $HOME/.vscode-oss/plugins.txt; fi]
-
+  - [cat ./config/default/zshrc-kali >> $HOME/.zshrc]
 - clean:
     $HOME/:
       force: true
