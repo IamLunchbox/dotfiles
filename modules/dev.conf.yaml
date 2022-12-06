@@ -14,8 +14,6 @@
     $HOME/.zshrc:
       force: true
       path: config/default/zshrc
-    $HOME/Pictures/Screenshots:
-      mode: 0750
     $HOME/Repos:
       mode: 0750
     $HOME/.config/i3-custom:

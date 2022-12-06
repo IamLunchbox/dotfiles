@@ -11,8 +11,6 @@
     description: "Cleaning up custom dotfiles beforehand"
 
 - create:
-    $HOME/Pictures/Screenshots:
-      mode: 0750
     $HOME/Repos:
       mode: 0750
     $HOME/.config/i3-custom:
