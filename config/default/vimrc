@@ -12,7 +12,6 @@ set hidden
 " remember more commands and search history
 set history=10000
 set expandtab
-set filetype indent on
 set tabstop=2
 " Display a confirmation dialog when closing an unsaved file.
 set confirm
@@ -102,3 +101,4 @@ set statusline+=%4*\ %{&ff}\                              "FileFormat (dos/unix.
 set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\             "Rownumber/total (%)
 set statusline+=%9*\ col:%03c\                            "Colnr
 set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? Top/bot.
+colorscheme onedark
