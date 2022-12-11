@@ -2,7 +2,6 @@
 
 " remove all existing autocmds
 autocmd!
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
@@ -13,10 +12,20 @@ set hidden
 " remember more commands and search history
 set history=10000
 set expandtab
+set filetype indent on
 set tabstop=2
+" Display a confirmation dialog when closing an unsaved file.
+set confirm
 set shiftwidth=2
 set softtabstop=2
+" Always show cursor position.
+set ruler
+" Highlight the line currently under cursor.
+set cursorline
+" Disable beep on errors.
+set noerrorbells
 set autoindent
+" Always display the status bar.
 set laststatus=2
 set showmatch
 set noswapfile
@@ -24,6 +33,10 @@ set nobackup
 set nowritebackup
 set incsearch
 set hlsearch
+" Enable line wrapping
+set wrap
+" Avoid wrapping a line in the middle of a word
+set linebreak
 " make searches case-sensitive only if they contain upper-case characters
 set ignorecase smartcase
 " highlight current line
@@ -35,16 +48,9 @@ set showtabline=2
 set winwidth=79
 " This makes RVM work inside Vim. I have no idea why.
 set shell=zsh
-" Prevent Vim from clobbering the scrollback buffer. See
-" http://www.shallowsky.com/linux/noaltscreen.html
-" set t_ti= t_te=
-" keep more context when scrolling off the end of a buffer
-set scrolloff=3
 " Don't make backups at all
 set nobackup
 set nowritebackup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 " display incomplete commands
@@ -78,10 +84,6 @@ set nofoldenable
 set nojoinspaces
 " If a file is changed outside of vim, automatically reload it without asking
 set autoread
-" Use the old vim regex engine (version 1, as opposed to version 2, which was
-" introduced in Vim 7.3.969). The Ruby syntax highlighting is significantly
-" slower with the new regex engine.
-set re=1
 " Stop SQL language files from doing unholy things to the C-c key
 let g:omni_sql_no_default_maps = 1
 " Diffs are shown side-by-side not above/below
@@ -90,13 +92,6 @@ set diffopt=vertical
 set signcolumn=no
 " True color mode! (Requires a fancy modern terminal, but iTerm works.)
 :set termguicolors
-" Write swap files to disk and trigger CursorHold event faster (default is
-" after 4000 ms of inactivity)
-:set updatetime=200
-" Completion options.
-"   menu: use a popup menu
-"   preview: show more info in menu
-:set completeopt=menu,preview
 set statusline=
 set statusline+=%7*\[%n]                                  "buffernr
 set statusline+=%1*\ %<%F\                                "File+path
@@ -107,25 +102,3 @@ set statusline+=%4*\ %{&ff}\                              "FileFormat (dos/unix.
 set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\             "Rownumber/total (%)
 set statusline+=%9*\ col:%03c\                            "Colnr
 set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? Top/bot.
-colorscheme onedark
-inoremap jj <esc>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" MULTIPURPOSE TAB KEY
-" Indent if we're at the beginning of a line. Else, do completion.
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col
-        return "\<tab>"
-    endif
-
-    let char = getline('.')[col - 1]
-    if char =~ '\k'
-        " There's an identifier before the cursor, so complete the identifier.
-        return "\<c-p>"
-    else
-        return "\<tab>"
-    endif
-endfunction
-inoremap <expr> <tab> InsertTabWrapper()
-inoremap <s-tab> <c-n>
