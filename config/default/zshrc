@@ -40,7 +40,7 @@ else;
   PS1+=$'%B%F{166}%d%f%b\n%F{243}%n@%M%f%(!. %B%F{red}#%b%f.%F{243}:%f)%f '
 fi
 RPROMPT='%(?.%B%F{green}√%b%f.%B%F{red}✗%b%?%f)'
-PATH="${PATH:+${PATH}:}~$HOME/.local/bin"
+PATH="${PATH}:${HOME}/.local/bin"
 # If one keybinding behaves unexpected, use ctrl+v or cat -v to investigate
 bindkey	"^[[3~" delete-char
 bindkey	"^[[1;5C"	forward-word
