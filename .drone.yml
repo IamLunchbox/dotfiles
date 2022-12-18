@@ -12,9 +12,10 @@ steps:
 - name: Install Vscode
   image: docker.io/ubuntu:jammy
   commands:
-    - apt update && apt install -y sudo curl gpg git
+    - apt update -y && apt install -y sudo curl gpg git
     - curl -fsSL https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | sudo gpg --dearmor -o /usr/share/keyrings/codium.gpg
     - echo 'deb [ signed-by=/usr/share/keyrings/codium.gpg ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main' | sudo tee /etc/apt/sources.list.d/codium.list
     - chmod 644 /etc/apt/sources.list.d/codium.list
+    - apt update -y
     - apt install -y codium 
     - install dev
