@@ -2,6 +2,9 @@ kind: pipeline
 type: docker
 name: default
 
+environment:
+  DEBIAN_FRONTEND: noninteractive
+
 clone:
   depth: 1
 
@@ -9,9 +12,9 @@ steps:
 - name: Install Vscode
   image: docker.io/ubuntu:jammy
   commands:
+    - apt install -y sudo curl gpg git
     - curl -fsSL https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | sudo gpg --dearmor -o /usr/share/keyrings/codium.gpg
     - echo 'deb [ signed-by=/usr/share/keyrings/codium.gpg ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main' | sudo tee /etc/apt/sources.list.d/codium.list
-    - sudo chmod 644 /etc/apt/sources.list.d/codium.list
-    - sudo apt update -y
-    - sudo apt install -y codium 
+    - chmod 644 /etc/apt/sources.list.d/codium.list
+    - apt install -y codium 
     - install dev
