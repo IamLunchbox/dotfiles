@@ -29,8 +29,6 @@ if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
   bindkey '^H'  backward-kill-word
 elif [[ $TERM_PROGRAM == "vscode" ]]; then
   bindkey '^W'  backward-kill-word
-elif cat /etc/debian_version &> /dev/null && [[ $(cat /etc/debian_version) == "kali-rolling" ]]; then
-  bindkey '^?'  backward-kill-word
 else 
   bindkey '^H'  backward-kill-word
 fi
