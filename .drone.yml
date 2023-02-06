@@ -15,7 +15,7 @@ steps:
     - chmod 644 /etc/apt/sources.list.d/codium.list
     - apt update -y
     - apt install -y codium
-    - install dev
-   environment:
-     HOME: $${DRONE_WORKSPACE}
-     DEBIAN_FRONTEND: noninteractive
+    - bash ${DRONE_WORKSPACE} install dev
+  environment:
+    HOME: ${DRONE_WORKSPACE}
+    DEBIAN_FRONTEND: noninteractive
