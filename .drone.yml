@@ -16,7 +16,7 @@ steps:
     - apt update -y
     - apt install -y codium 
     #- bash ${DRONE_WORKSPACE}/install dev
-    - bash ${DRONE_WORKSPACE}/install dev
+    - bash $${DRONE_WORKSPACE}/install dev
    environment:
-     HOME: ${DRONE_WORKSPACE}
+     HOME: $${DRONE_WORKSPACE}
      DEBIAN_FRONTEND: noninteractive
