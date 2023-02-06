@@ -3,7 +3,7 @@ type: docker
 name: default
 
 environment:
-  DEBIAN_FRONTEND: noninteractive
+e
 
 clone:
   depth: 1
@@ -19,3 +19,6 @@ steps:
     - apt update -y
     - apt install -y codium 
     - bash $${DRONE_WORKSPACE}/install dev
+   environment:
+     HOME: ${DRONE_WORKSPACE}
+     DEBIAN_FRONTEND: noninteractive
