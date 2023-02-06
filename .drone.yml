@@ -14,8 +14,7 @@ steps:
     - echo 'deb [ signed-by=/usr/share/keyrings/codium.gpg ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main' | sudo tee /etc/apt/sources.list.d/codium.list
     - chmod 644 /etc/apt/sources.list.d/codium.list
     - apt update -y
-    - apt install -y codium 
-    #- bash ${DRONE_WORKSPACE}/install dev
+    - apt install -y codium
     - install dev
    environment:
      HOME: $${DRONE_WORKSPACE}
