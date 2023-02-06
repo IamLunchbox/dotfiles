@@ -2,9 +2,6 @@ kind: pipeline
 type: docker
 name: default
 
-environment:
-e
-
 clone:
   depth: 1
 
