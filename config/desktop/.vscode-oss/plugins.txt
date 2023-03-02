@@ -8,3 +8,4 @@ zhuangtongfa.material-theme
 hashicorp.terraform
 ms-azuretools.vscode-docker
 equinusocio.vsc-material-theme-icons
+timonwong.shellcheck
