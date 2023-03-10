@@ -8,5 +8,4 @@ set functioncolor cyan
 set numbercolor yellow
 set tabsize 4
 unset historylog
-include ~/.nano/*.nanorc
 bind ^H chopwordleft main

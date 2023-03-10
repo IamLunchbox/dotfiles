@@ -1,6 +1,5 @@
-alias ls="ls --color=always"
-alias ll="ls -l --color=always"
 alias la="ls -A --color=always"
-alias grep="grep --color=always"
+alias l="ls -l1h --color=always"
+alias pgrep="grep -P"
 alias vim="rvim"
 alias view="rview"

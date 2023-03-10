@@ -1,3 +1,4 @@
+#shellcheck disable=2148
 function testssl-report() {
 set -u
 if [[ $(command -v openssl-unsafe) ]]; then
@@ -10,38 +11,41 @@ set +u
 
 function testssl-update() {
 set -u
-current_dir=$(pwd)
 if [[ ! -d $HOME/Repos/testssl.sh ]]; then
-  cd $HOME/Repos
-  git clone https://github.com/drwetter/testssl.sh
+  (
+  cd "$HOME/Repos" || exit 1
+  git clone --single-branch -depth 1 -b '3.0' https://github.com/drwetter/testssl.sh
+  )
 else
-  cd $HOME/Repos/testssl.sh && git pull
+  (
+  cd "$HOME/Repos/testssl.sh" || exit 1
+  git pull
+  )
 fi
-cd ${current_dir}
 set +u
 }
 
 
 function testssl() {
 set -u
-if [[ -d $HOME/Repos/testssl.sh ]]; then
-  if [[ $(command -v openssl-unsafe) ]]; then
-    echo "Testssl - unsafe openssl
-------------------------"
-    $HOME/Repos/testssl.sh/testssl.sh --openssl /usr/bin/openssl-unsafe $@
-  elif [[ $(command -v openssl) ]]; then
-    echo "Testssl - safe openssl
-+++++++++++++++++++++++"
-    $HOME/Repos/testssl.sh/testssl.sh --openssl /usr/bin/openssl $@
-  fi
-else
+if [[ ! -d $HOME/Repos/testssl.sh ]]; then
   echo -n "$HOME/Repos/testssl.sh does not seem to exist.
 Do you want to create it now? [Y/N] "
-  read confirm
-  if [[ $confirm =~ ^[Yy]{1} ]]; then
+  read -r confirm
+  if [[ "${confirm}" =~ ^[Yy]{1} ]]; then
     testssl-update
   else
     echo "Aborting"
+    exit 1
+  fi
+fi
+if [[ -d $HOME/Repos/testssl.sh ]]; then
+  if [[ $(command -v openssl-unsafe &>/dev/null) ]]; then
+    #shellcheck disable=2068
+    "$HOME/Repos/testssl.sh/testssl.sh" --openssl /usr/bin/openssl-unsafe $@
+  elif [[ $(command -v openssl &>/dev/null) ]]; then
+    #shellcheck disable=2068
+    "$HOME/Repos/testssl.sh/testssl.sh" --openssl /usr/bin/openssl $@
   fi
 fi
 set +u

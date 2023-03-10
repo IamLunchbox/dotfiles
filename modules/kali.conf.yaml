@@ -17,8 +17,6 @@
       mode: 0750
     $HOME/.config/i3-custom:
       mode: 0750
-    $HOME/Documents/Shell-Logs:
-      mode: 0750
 
 - link:
     $HOME/.config/:
@@ -27,13 +25,11 @@
     $HOME/.config/wallpapers:
       glob: true
       path: config/kali/wallpapers
-    $HOME/.nanorc:
-      path: config/kali/nanorc
     $HOME/.config/i3-custom/kali.conf:
       path: config/kali/i3/kali.conf
       glob: true
     $HOME/.vscode-oss/plugins.txt:
-      path: config/desktop/.vscode-oss/plugins.txt
+      path: config/kali/.vscode-oss/plugins.txt
 
 - shell:
   - [if command -v codium; then while IFS= read -r pkg; do codium --install-extension $pkg; done < $HOME/.vscode-oss/plugins.txt; fi]

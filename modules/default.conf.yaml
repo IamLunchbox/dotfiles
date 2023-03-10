@@ -21,9 +21,6 @@
     $HOME/.nanorc:
       path: config/default/nanorc
       force: true
-    $HOME/.nano:
-      path: config/default/nano
-      force: true
     $HOME/.aliases:
       force: true
       path: config/default/aliases
