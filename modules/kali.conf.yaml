@@ -22,9 +22,6 @@
     $HOME/.config/:
       glob: true
       path: config/desktop/config/*
-    $HOME/.config/wallpapers:
-      glob: true
-      path: config/kali/wallpapers
     $HOME/.config/i3-custom/kali.conf:
       path: config/kali/i3/kali.conf
       glob: true
