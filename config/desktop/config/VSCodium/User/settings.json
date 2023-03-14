@@ -24,5 +24,6 @@
     "git.enableSmartCommit": true,
     "docker.dockerPath": "podman",
     "docker.host": "unix:///run/user/1000/podman/podman.sock",
-    "docker.composeCommand": "podman-compose"
+    "docker.composeCommand": "podman-compose",
+    "python.venvPath": "$HOME/.virtualenvs"
 }

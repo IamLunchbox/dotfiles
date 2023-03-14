@@ -25,11 +25,17 @@
     $HOME/.config/i3-custom/kali.conf:
       path: config/kali/i3/kali.conf
       glob: true
+    $HOME/.config/flameshot/flameshot.ini:
+      path: config/kali/flameshot/flameshot.ini
+    $HOME/.config/xfce4/kali_panel.tar.bz2:
+      path: config/kali/xfce4/kali_profile.tar.bz2
     $HOME/.vscode-oss/plugins.txt:
       path: config/kali/.vscode-oss/plugins.txt
 
 - shell:
   - [if command -v codium; then while IFS= read -r pkg; do codium --install-extension $pkg; done < $HOME/.vscode-oss/plugins.txt; fi]
+  - [if command -v xfce4-panel-profiles && test -f $HOME/.config/xfce4/kali_panel.tar.bz2 ; then xfce4-panel-profiles load $HOME/.config/xfce4/kali_panel.tar.bz2; fi]
+
 - clean:
     $HOME/:
       force: true

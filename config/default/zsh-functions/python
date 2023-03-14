@@ -1,0 +1,9 @@
+function dvenv() {
+set -u
+if [[ -x "${HOME}/.virtualenvs/default/bin/activate" ]]; then
+  "${HOME}/.virtualenvs/default/bin/activate"
+else
+  echo "${HOME}/.virtualenvs/default/bin/activate could not be found!"
+fi
+set +u
+}
