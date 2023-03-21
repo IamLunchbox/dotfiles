@@ -1,7 +1,7 @@
 function dvenv() {
 set -u
 if [[ -f "${HOME}/.virtualenvs/default/bin/activate" ]]; then
-  "source ${HOME}/.virtualenvs/default/bin/activate"
+  source "${HOME}/.virtualenvs/default/bin/activate"
 else
   echo "${HOME}/.virtualenvs/default/bin/activate could not be found!"
 fi
