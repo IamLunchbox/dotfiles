@@ -25,5 +25,8 @@
     "docker.dockerPath": "podman",
     "docker.host": "unix:///run/user/1000/podman/podman.sock",
     "docker.composeCommand": "podman-compose",
-    "python.venvPath": "$HOME/.virtualenvs"
+    "python.venvPath": "$HOME/.virtualenvs",
+    "python.formatting.provider": "black",
+    "notebook.lineNumbers": "on",
+    "python.languageServer": "Jedi"
 }
