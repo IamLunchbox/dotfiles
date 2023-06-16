@@ -3,7 +3,7 @@
     "workbench.startupEditor": "none",
     "redhat.telemetry.enabled": false,
     "editor.renderWhitespace": "all",
-    "editor.tabSize": 2,
+    "editor.tabSize": 4,
     "files.exclude": {
         "**/.git": false
     },
@@ -28,5 +28,7 @@
     "python.venvPath": "$HOME/.virtualenvs",
     "python.formatting.provider": "black",
     "notebook.lineNumbers": "on",
-    "python.languageServer": "Jedi"
+    "python.languageServer": "Jedi",
+    "terminal.integrated.sendKeybindingsToShell": true,
+    "terminal.integrated.allowChords": false,
 }
