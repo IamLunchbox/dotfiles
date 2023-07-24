@@ -23,7 +23,7 @@
     $HOME/.config/i3-custom/dev.conf:
       path: config/dev/i3/dev.conf
     $HOME/.vscode-oss/plugins.txt:
-      path: config/dev/.vscode-oss/plugins.txt
+      path: config/dev/vscode-oss/plugins.txt
 
 - shell:
   - [if command -v codium; then while IFS= read -r pkg; do codium --install-extension $pkg; done < $HOME/.vscode-oss/plugins.txt; fi]

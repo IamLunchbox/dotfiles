@@ -30,7 +30,7 @@
     $HOME/.config/xfce4/kali_panel.tar.bz2:
       path: config/kali/xfce4/kali_profile.tar.bz2
     $HOME/.vscode-oss/plugins.txt:
-      path: config/kali/.vscode-oss/plugins.txt
+      path: config/kali/vscode-oss/plugins.txt
 
 - shell:
   - [if command -v codium; then while IFS= read -r pkg; do codium --install-extension $pkg; done < $HOME/.vscode-oss/plugins.txt; fi]
