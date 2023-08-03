@@ -7,3 +7,13 @@ else
 fi
 set +u
 }
+
+function avenv() {
+set -u
+if [[ -f "${HOME}/.virtualenvs/ansible/bin/activate" ]]; then
+  source "${HOME}/.virtualenvs/ansible/bin/activate"
+else
+  echo "${HOME}/.virtualenvs/ansible/bin/activate could not be found!"
+fi
+set +u
+}
