@@ -1,5 +1,20 @@
-alias la="ls -A --color=always"
-alias l="ls -l1h --color=always"
+alias la="ls -A"
+alias ll="ls -l1h"
+alias lla="ls -l1ha"
 alias pgrep="grep -P"
 alias vim="rvim"
 alias view="rview"
+
+if command -v exa &>/dev/null; then
+  alias la="exa -a"
+  alias ll="exa --grid --long -h"
+  alias lla="exa --grid --long -h"
+fi
+
+if command -v batcat &>/dev/null; then
+  alias cat="batcat"
+fi
+
+if command -v duf &>/dev/null; then
+  alias df="duf"
+fi

@@ -60,13 +60,13 @@ elif [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlightin
 fi
 
 if [[ -f "$HOME/.aliases" ]]; then
-source $HOME/.aliases
+  source $HOME/.aliases
 fi
 if [[ -f "$HOME/.local-aliases" ]]; then
-source $HOME/.local-aliases
+  source $HOME/.local-aliases
 fi
 if [[ -h "$HOME/.zsh-functions" ]]; then
   for func in $HOME/.zsh-functions/*; do
-  source $func;
+    source $func;
   done
 fi

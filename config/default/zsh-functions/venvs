@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 function dvenv() {
 set -u
 if [[ -f "${HOME}/.virtualenvs/default/bin/activate" ]]; then

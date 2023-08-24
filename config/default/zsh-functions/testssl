@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 #shellcheck disable=2148
 function testssl-report() {
 set -u
