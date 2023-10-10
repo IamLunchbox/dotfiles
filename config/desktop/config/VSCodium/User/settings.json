@@ -23,7 +23,10 @@
     "docker.host": "unix:///run/user/1000/podman/podman.sock",
     "docker.composeCommand": "podman-compose",
     "python.venvPath": "$HOME/.virtualenvs",
-    "python.formatting.provider": "black",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true  
+    },
     "notebook.lineNumbers": "on",
     "python.languageServer": "Pylance",
     "terminal.integrated.sendKeybindingsToShell": true,
