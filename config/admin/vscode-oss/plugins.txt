@@ -9,3 +9,4 @@ hashicorp.terraform
 ms-azuretools.vscode-docker@1.22.2
 equinusocio.vsc-material-theme-icons
 timonwong.shellcheck
+ms-pyright.pyright
