@@ -28,7 +28,7 @@
         "editor.formatOnSave": true  
     },
     "notebook.lineNumbers": "on",
-    "python.languageServer": "None",
+    "python.languageServer": "Jedi",
     "terminal.integrated.sendKeybindingsToShell": true,
     "terminal.integrated.allowChords": false,
     // "ansible.python.interpreterPath": "${userHome}/.virtualenvs/default/bin/python3"

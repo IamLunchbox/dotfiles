@@ -10,4 +10,3 @@ ms-azuretools.vscode-docker@1.22.2
 equinusocio.vsc-material-theme-icons
 timonwong.shellcheck
 ms-python.black-formatter
-ms-pyright.pyright
