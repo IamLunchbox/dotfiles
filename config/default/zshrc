@@ -1,5 +1,3 @@
-# Workaround against starting percentage sign before the PS1
-unsetopt PROMPT_SP
 # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_expire_dups_first
 setopt hist_ignore_dups       # ignore duplicated commands history list
