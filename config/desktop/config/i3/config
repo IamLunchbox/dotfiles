@@ -8,13 +8,15 @@ font pango:Monospace 10
 # Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $super+$alt
 
+# assign apps to specific windows
+assign [class="KeePassXC"] 7
+
 #autostart
 exec --no-startup-id feh --bg-fill --randomize $HOME/.config/wallpapers/*
-exec --no-startup-id xsettingsd
 exec --no-startup-id picom -b
 exec --no-startup-id nm-applet
 exec --no-startup-id pnmixer
-exec --no-startup-id setxkbmap -layout de
+exec --no-startup-id keepassxc
 
 # start a terminal
 bindsym $super+Return exec i3-sensible-terminal
